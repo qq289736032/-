@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body id="body">
+    <div id="root"></div>
+    <script type="text/babel">
+
+        class LikeButton extends React.Component{
+            constructor(props){
+                super(props);
+                //绑定事件
+                this.handleClick = this.handleClick.bind(this);
+                /*设置liked的初值*/
+                this.state = { liked: false};
+            }
+            /*点击事件处理，改变liked的初始值*/
+            handleClick(e) {
+                this.setState({liked: !e.target.liked});
+            }
+
+            render(){
+                var text = this.state.liked ? 'like' : 'haven\'t liked';
+                return (
+                    <p onClick={this.handleClick}>
+                        You {text} this.Click to toggle.
+                    </p>
+                );
+            }
+        }
+        ReactDOM.render(
+            <LikeButton />
+                ,
+            document.getElementById("root")
+        );
+
+    </script>
+
+</body>
+</html>
+<!--
+    事件的绑定与,状态的改变
+
+-->

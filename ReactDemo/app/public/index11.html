@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script src="js/jquery-3.2.1.min.js"/>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body id="body">
+    <div id="root"></div>
+    <!--<script type="text/babel">
+
+        class UserGist extends React.Component{
+            constructor(props){
+                super(props);
+                this.state = { username: '', lastGistUrl:''};
+            }
+
+            componentDidMount() {
+                $.get(this.props.source,function(data){
+                    var lastGist = data[0];
+                    this.setState({username: lastGist.owner.login, lastGistUrl: lastGist.html_url})
+                    console.log(data[0])
+                }.bind(this));
+
+            }
+
+            render(){
+                return (
+                    <div>
+                        {this.state.username}'s last gist is <a herf={this.state.lastGistUrl}>here</a>
+                    </div>
+                );
+            }
+        }
+        ReactDOM.render(
+            <UserGist source="https://api.github.com/users/octocat/gists"/>
+                ,
+            document.getElementById("root")
+        );
+
+    </script>-->
+
+
+</body>
+</html>
+<!--
+    没运行成功;
+
+-->

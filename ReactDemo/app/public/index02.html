@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body id="body">
+    <div id="root"></div>
+    <script type="text/babel">
+        var names = ["张三","李四","王五"]
+        ReactDOM.render(
+
+            <div>
+                {
+                    names.map(function(name){
+                        return <div>Hello,{name}</div>;
+                    })
+                }
+            </div>,
+            document.getElementById("body")
+        );
+
+    </script>
+
+</body>
+</html>
+<!--
+    demo来自阮一峰的GitHub
+    https://github.com/ruanyf/react-demos
+-->
+<!--
+    map的用法:arr.map();
+    map() 方法返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值。
+
+    map() 方法按照原始数组元素顺序依次处理元素。
+
+    注意： map() 不会对空数组进行检测。
+
+    注意： map() 不会改变原始数组。
+    语法: array.map(function(currentValue,index,arr){}, thisValue)
+
+-->

@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body id="body">
+    <div id="root"></div>
+    <script type="text/babel">
+
+        class Hello extends React.Component{
+            constructor(props){
+                super(props);
+                this.state = { opacity: 1.0};
+            }
+
+            componentDidMount(){
+                this.timer = setInterval(
+                    function(){
+                        var  opacity = this.state.opacity;
+                        opacity = opacity - 0.5;
+                        if(opacity < 0.1){
+                            opacity = 1;
+                        }
+                        this.setState({ opacity : opacity });
+                        /*console.log(this)*/
+
+                    }.bind(this),100);
+            }
+
+            render(){
+                var value = this.state.value;
+                return (
+                    <div style={{opacity: this.state.opacity}}>
+                        Hello {this.props.name}
+                    </div>
+                );
+            }
+        }
+        ReactDOM.render(
+            <Hello />
+                ,
+            document.getElementById("root")
+        );
+
+    </script>
+
+
+</body>
+</html>
+<!--
+    timer的使用
+    setInterval() 方法可按照指定的周期（以毫秒计）来调用函数或计算表达式。
+
+    setInterval() 方法会不停地调用函数，直到 clearInterval() 被调用或窗口被关闭。由 setInterval() 返回的 ID 值可用作 clearInterval() 方法的参数
+
+    function(){}匿名函数的bind(this)方法,能够保证每次调用这个函数的都是<Hello/>
+
+    css的opacity属性
+    设置div元素的不透明级别
+
+-->
